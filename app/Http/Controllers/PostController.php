@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\View\View;
@@ -21,7 +21,7 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      */
     // return view('profile.edit', [
-    //     'user' => $request->user(),
+//     'user' => $request->user(),
     // ]);
     public function create(Request $request): View
     {
@@ -43,10 +43,25 @@ class PostController extends Controller
 // }
     /**
      * Store a newly created resource in storage.
-     */
+     */            
+            // //ovo treba da bude animal type moram samo da provalim kako 
+            // $table->enum('animal_type', ['Pig', 'Cow', 'Sheep']);
+            // // $table->string('animal_type', 5);
+            // $table->integer('age');
+            // $table->integer('number_in_herd');
+            // $table->decimal('price_per_kilo', 10, 2);
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->timestamps();
     public function store(Request $request)
     {
-        
+        $validated = $request->validate([
+            'animal_type' => 'required',
+            'number_in_herd' => 'required',
+            'price_per_kilo' => 'required',
+            'age' => 'required',
+            'user_id'=> Auth::user()->user_id,
+        ]);
+        return to_route('post.show', ['post' => $post->id]);
     }
 
     /**

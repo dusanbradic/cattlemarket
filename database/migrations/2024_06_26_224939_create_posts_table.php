@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            //ovo treba da bude animal type moram samo da provalim kako 
             $table->enum('animal_type', ['Pig', 'Cow', 'Sheep']);
-            // $table->string('animal_type', 5);
             $table->integer('age');
             $table->integer('number_in_herd');
             $table->decimal('price_per_kilo', 10, 2);

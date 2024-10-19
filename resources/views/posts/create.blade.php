@@ -14,7 +14,7 @@
                 @method('POST')
 
                 <div>
-                    <x-input-label for="animal_type" :value="__('animal_type')" />
+                    <x-input-label for="animal_type" :value="__('Animal Type')" />
                     <select id="animal_type" name="animal_type" class="mt-1 block w-full" required>
                     <option value="" disabled selected>Select Animal Type</option>
                     @foreach($animal_types as $type)
@@ -26,17 +26,17 @@
                     <x-input-error class="mt-2" :messages="$errors->get('animal_type')" />
                 </div>
                 <div>
-                    <x-input-label for="age" :value="__('age')" />
+                    <x-input-label for="age" :value="__('Age')" />
                     <x-text-input id="name" name="age" type="number" class="mt-1 block w-full" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('age')" />
                 </div>
                 <div>
-                    <x-input-label for="number_in_herd" :value="__('number_in_herd')" />
+                    <x-input-label for="number_in_herd" :value="__('Number in herd')" />
                     <x-text-input id="name" name="number_in_herd" type="number" class="mt-1 block w-full" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('number_in_herd')" />
                 </div>
                 <div>
-                    <x-input-label for="price_per_kilo" :value="__('price_per_kilo')" />
+                    <x-input-label for="price_per_kilo" :value="__('Price per Kilo')" />
                     <x-text-input id="name" name="price_per_kilo" type="number" class="mt-1 block w-full" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('price_per_kilo')" />
                 </div>
