@@ -59,9 +59,15 @@ class PostController extends Controller
             'number_in_herd' => 'required',
             'price_per_kilo' => 'required',
             'age' => 'required',
-            'user_id'=> Auth::user()->user_id,
         ]);
-        return to_route('post.show', ['post' => $post->id]);
+        $post = Post::create([
+            'animal_type' => $validated['animal_type'],
+            'number_in_herd' => $validated['number_in_herd'],
+            'price_per_kilo' => $validated['price_per_kilo'],
+            'age' => $validated['age'],
+            'user_id' => Auth::id(), // Assign the current logged-in user's ID
+        ]);
+        return to_route('posts.index');
     }
 
     /**
